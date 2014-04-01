@@ -52,7 +52,7 @@ for employee in employees:
 	if boss == None:
 		continue
 	else:
-		# recursive while loop to insert superiors until the child's boss == None
+		# recursive while loop to insert superiors until boss == None
 		while boss != None:
 			boss_position = employees[boss]['position']
 			hierarchy[employee][boss_position] = boss
