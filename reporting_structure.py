@@ -1,7 +1,4 @@
 """
-    Code snippet for Astreya/Google
-    ~~~~~
-
     At E*Trade, one of the features of the application I developed is to take data describing an
     employee's access privileges to an application, and send it to the appropriate person in the
     business for review and approval. It's not a terribly exciting problem to solve, but critical
