@@ -1,4 +1,6 @@
 import employees, sqlite3
+
+# connect to sqlite DB created by the employees.py script
 conn = sqlite3.connect('employees.db')
 cur = conn.cursor()
 
@@ -9,22 +11,22 @@ sql = """
       SELECT {}
       FROM employees
       """.format(','.join(columns))
-
-# assume 'db' is a connection object that implements the Python DB API 2.0 (PEP 249)
 cur.execute(sql)
+
+# store employee records as a list of tuples
 employee_records = cur.fetchall()
 
-# dictionary of dictionaries in the form {employeenumber: {attribute: value, attribute: value, etc...}}
+# dictionary of dictionaries to quickly access each employee record by id
 employees = {}
 for i in employee_records:
     employees[i[0]] = {k:v for k,v in zip(columns[1:], i[1:])}
 
-# empty dict to store final data structure
+# empty dict to store the desired heirarchical data structure
 hierarchy = {}
 
 for employee in employees:
 	boss = employees[employee]['boss']
-	# add empty dict to store superiors of a given employee
+	# add empty dict to store the reporting line for a given employee
 	hierarchy[employee] = {}
 	# continue if the user has no boss (like the CEO)
 	if boss == None:
