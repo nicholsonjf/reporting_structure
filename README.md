@@ -3,7 +3,7 @@ reporting_structure
 
 The module reporting_sructure defines one method:
 
-**get_structure**(*id*)
+**get_structure**(*id*) <br>
 Returns the reporting structure of the employee with employee_id = id
 as a dictionary of position:employee_id pairs
 
